@@ -10,6 +10,7 @@ This project is a simple Flask-based API that returns the name and abilities of 
 
 ## Project Structure
 
+```
 poke-random/
 │
 ├── app/
@@ -24,6 +25,7 @@ poke-random/
 ├── docker-compose.yml
 ├── Taskfile.yml
 ├── README.md
+```
 
 ## Installation and Running
 
