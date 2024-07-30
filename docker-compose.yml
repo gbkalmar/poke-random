@@ -1,0 +1,34 @@
+services:
+  api:
+    container_name: poke-random-api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: poke-random-api:latest
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./app:/app
+    environment:
+      - FLASK_ENV=development
+    depends_on:
+      - cache
+
+  cache:
+    container_name: poke-random-cache
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+
+  test:
+    container_name: poke-random-test
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: poke-random-test:latest
+    volumes:
+      - ./app:/app
+      - ./tests:/tests
+    command: ["pytest", "/tests"]
+    depends_on:
+      - cache

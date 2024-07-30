@@ -1,0 +1,28 @@
+version: '3'
+
+tasks:
+  build:
+    desc: "Build the Docker images"
+    cmds:
+      - docker-compose build
+
+  up:
+    desc: "Start the application"
+    cmds:
+      - docker-compose up -d
+
+  down:
+    desc: "Stop the application"
+    cmds:
+      - docker-compose down
+
+  test:
+    desc: "Run tests"
+    cmds:
+      - docker-compose run --rm test
+
+  cleanup:
+    desc: "Cleaning up the environment"
+    cmds:
+      - docker rmi poke-random-api:latest poke-random-test:latest redis:alpine || true
+      - docker system prune -f
