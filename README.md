@@ -91,7 +91,7 @@ This will show you the logs of the containers, which can help you in troubleshoo
 
 **Flask application errors:** if the Flask application does not respond, check the logs of the api container:
 
-`docker-compose logs poke-random-api`
+`docker-compose logs api`
 
 With these steps and tools, you can effectively communicate with the running Flask application and troubleshoot if something is not working properly.
 
